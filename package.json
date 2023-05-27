@@ -22,6 +22,7 @@
     "vite-plugin-glsl": "^1.1.2"
   },
   "dependencies": {
+    "lil-gui": "^0.18.1",
     "the-new-css-reset": "^1.8.4",
     "three": "^0.151.3",
     "typescript-event-target": "^1.0.4"
