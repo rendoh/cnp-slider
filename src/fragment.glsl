@@ -2,11 +2,12 @@ const int LENGTH = 1;
 
 uniform float uProgress;
 uniform sampler2D uTextures[LENGTH];
+uniform float uBoundaryClarity;
 varying vec2 vUv;
 
 float calcStrength(float offset) {
   float p = uProgress - offset;
-  return clamp(p - ((1. - vUv.x) - p) * 5., 0., 1.);
+  return clamp(p - ((1. - vUv.x) - p) * uBoundaryClarity, 0., 1.);
 }
 
 void main() {
