@@ -5,7 +5,7 @@ import { sizes } from './sizes';
 
 class Renderer {
   public readonly canvas = document.createElement('canvas');
-  private renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
+  public readonly renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
   public readonly scene = new THREE.Scene();
 
   constructor() {

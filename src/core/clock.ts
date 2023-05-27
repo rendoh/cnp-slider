@@ -6,7 +6,7 @@ type ClockEventMap = {
 
 class Clock extends TypedEventTarget<ClockEventMap> {
   public elapsed = 0;
-  public delta = 16;
+  public delta = 1000 / 60;
   private id?: number;
 
   constructor() {
