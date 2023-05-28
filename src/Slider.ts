@@ -12,7 +12,7 @@ const config = {
   distortionRange: 0.5,
   distortionStrength: 50,
   distortionFrequency: 0.07,
-  boundaryClarity: 5,
+  boundaryClarity: 3,
 };
 gui.add(config, 'distortionRange', 0, 1, 0.01);
 gui.add(config, 'distortionStrength', 0, 200, 0.1);
@@ -110,7 +110,7 @@ export class Slider {
       if (!this.isDragging) return;
       e.preventDefault();
       const clientX = 'clientX' in e ? e.clientX : e.touches[0].clientX;
-      const delta = ((clientX - start) / sizes.width) * 1.5;
+      const delta = ((clientX - start) / sizes.width) * 4;
       start = clientX;
       this.progress -= delta;
     };
@@ -144,9 +144,9 @@ export class Slider {
     uniforms.uProgress.value = clamp(this.progress, 0, this.images.length - 1);
 
     if (this.progress < 0) {
-      this.mesh.position.z = this.progress * 100;
+      this.mesh.position.z = this.progress * 50;
     } else if (this.progress > this.images.length - 1) {
-      this.mesh.position.z = (this.images.length - 1 - this.progress) * 100;
+      this.mesh.position.z = (this.images.length - 1 - this.progress) * 50;
     }
 
     if (!this.isDragging) {
